@@ -11,12 +11,12 @@
         return modules[path].exports;
     };
     window.require.register = function(modulePath, code) {
-        var exports = modules[modulePath] = {
+        var module = modules[modulePath] = {
             id      : modulePath,
             url     : modulePath,
             exports : {}
         };
-        var fun = new Function(exports, module, code);
-        fun(exports, modules[modulePath]);
+        var fun = new Function('module', 'exports', code);
+        fun(module, module.exports);
     }
 }());
