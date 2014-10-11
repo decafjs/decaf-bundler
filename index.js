@@ -5,4 +5,3 @@
 module.exports = {
     Bundler: require('lib/Bundler')
 };
-
